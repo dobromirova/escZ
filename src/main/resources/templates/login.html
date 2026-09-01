@@ -1,22 +1,41 @@
 <!-- LOGIN FORM -->
- <section class="login-section" id="signup">
+<section class="login-section" id="signup" xmlns:th="http://www.w3.org/1999/xhtml">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <!-- * * * * * * * * * * * * * * *-->
-<!-- * * SB Forms Contact Form * *-->
-<!-- * * * * * * * * * * * * * * *-->
-<!-- This form is pre-integrated with SB Forms.-->
-<!-- To make this form functional, sign up at-->
-<!-- https://startbootstrap.com/solution/contact-forms-->
-<!-- to get an API token!-->
-<form class="form-login" id="loginForm" data-sb-form-api-token="API_TOKEN">
+
+
+
+<form   th:action="@{/users/login}"
+        th:method="post"
+        class="form-login"
+        id="loginForm"
+        data-sb-form-api-token="API_TOKEN">
     <!-- Email address input-->
     <div class="row input-group-newsletter">
-        <div class="col"><input class="form-control" id="username" type="text" placeholder="Enter username..." aria-label="Enter username..." data-sb-validations="required,username" /></div>
-        <div class="col"><input class="form-control" id="password" type="password" placeholder="Enter password..." aria-label="Enter password..." data-sb-validations="required,password" /></div>
-        <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Login</button></div>
+        <div class="col">
+            <input class="form-control"
+                   id="username"
+                   type="text"
+                   placeholder="Enter username..."
+                   aria-label="Enter username..."
+                   data-sb-validations="required,username" />
+        </div>
+        <small class="invalid-feedback">
+            <span class="bg-danger">Username is not correct </span>
+        </small>
+        <div class="col">
+            <input class="form-control"
+                   id="password"
+                   type="password"
+                   placeholder="Enter password..."
+                   aria-label="Enter password..."
+                   data-sb-validations="required,password" />
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary disabled" id="submitButton" type="submit">Login</button>
+        </div>
     </div>
     <!--   <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
        <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
