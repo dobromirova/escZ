@@ -13,9 +13,6 @@ public class User extends BaseEntity {
 
     public User() {}
 
-    @Column(nullable = false)
-    private String fullName;
-
     @Column(nullable = false, unique = true)
     private String username;
 
@@ -39,15 +36,6 @@ public class User extends BaseEntity {
 
 
 
-
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
 
     public String getUsername() {
         return username;

@@ -37,7 +37,6 @@ public class UserController {
 
     @GetMapping("/login")
     public String login() {
-
         return "login";
     }
 
@@ -46,8 +45,8 @@ public class UserController {
                              BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
 
-        if (bindingResult.hasErrors() || !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
-
+        if (bindingResult.hasErrors() || !userRegisterBindingModel
+                .getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
             redirectAttributes
                     .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
                     .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel",
@@ -62,6 +61,7 @@ public class UserController {
     }
 
 
+    @GetMapping("/profile/{id}")
     private String profile(@PathVariable Long id, Model model) {
 
         model.addAttribute("user",

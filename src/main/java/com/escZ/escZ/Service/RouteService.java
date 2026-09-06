@@ -12,7 +12,7 @@ public interface RouteService {
 
     void addNewRoute(RouteServiceModel routeServiceModel);
 
-    RouteDetailsViewModel findRouteById();
+    RouteDetailsViewModel findRouteById(Long id);
 
 
 }

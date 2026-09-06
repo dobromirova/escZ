@@ -4,18 +4,18 @@ import java.time.LocalDateTime;
 
 public class CommentViewModel {
 
-    private Long id;
+    private Long commentId;
     private String message;
     private String user;
     private LocalDateTime created;
 
 
-    public Long getId() {
-        return id;
+    public Long getCommentId() {
+        return commentId;
     }
 
-    public CommentViewModel setId(Long id) {
-        this.id = id;
+    public CommentViewModel setCommentId(Long commentId) {
+        this.commentId = commentId;
         return this;
     }
 
@@ -23,23 +23,26 @@ public class CommentViewModel {
         return message;
     }
 
-    public void setMessage(String message) {
+    public CommentViewModel setMessage(String message) {
         this.message = message;
+        return this;
     }
 
     public String getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public CommentViewModel setUser(String user) {
         this.user = user;
+        return this;
     }
 
     public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public CommentViewModel setCreated(LocalDateTime created) {
         this.created = created;
+        return this;
     }
 }

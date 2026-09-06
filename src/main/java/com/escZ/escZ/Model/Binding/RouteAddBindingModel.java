@@ -1,5 +1,6 @@
 package com.escZ.escZ.Model.Binding;
 
+import com.escZ.escZ.Model.Entity.Enum.GradeEnum;
 import org.springframework.web.multipart.MultipartFile;
 
 public class RouteAddBindingModel {
@@ -7,6 +8,7 @@ public class RouteAddBindingModel {
     private String name;
     private String description;
     private MultipartFile gpxCoordinates;
+    private GradeEnum grade;
 
     public String getName() {
         return name;
@@ -30,5 +32,13 @@ public class RouteAddBindingModel {
 
     public void setGpxCoordinates(MultipartFile gpxCoordinates) {
         this.gpxCoordinates = gpxCoordinates;
+    }
+
+    public GradeEnum getGrade() {
+        return grade;
+    }
+
+    public void setGrade(GradeEnum grade) {
+        this.grade = grade;
     }
 }

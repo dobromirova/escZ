@@ -1,5 +1,6 @@
 package com.escZ.escZ.Model.Entity;
 
+import com.escZ.escZ.Model.Entity.Enum.GradeEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,6 +35,9 @@ public class Route extends BaseEntity{
 
     @OneToMany(mappedBy = "route", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Comment> comments;
+
+    @OneToOne
+    private Grade grade;
 
 
     public String getGpxCoordinates() {
@@ -82,5 +86,13 @@ public class Route extends BaseEntity{
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 }

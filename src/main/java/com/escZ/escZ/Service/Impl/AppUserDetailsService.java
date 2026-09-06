@@ -6,14 +6,8 @@ import org.springframework.stereotype.Service;
 
 public class AppUserDetailsService {
 
-/*    private final UserRepository userRepository;
 
 
-    public AppUserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    } */
-
-    // TODO: IMPLEMENT WHEN ADDING SECURITY
 
 
 
