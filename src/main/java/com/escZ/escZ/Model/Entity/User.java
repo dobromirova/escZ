@@ -13,22 +13,22 @@ public class User extends BaseEntity {
 
     public User() {}
 
-    @Column(nullable = false, unique = true)
+
     private String username;
 
-    @Column(nullable = false, unique = true)
+
     private String email;
 
-    @Column(nullable = false)
+
     private String password;
 
-    @OneToMany(mappedBy = "author")
+
     private List<Route> routes;
 
-    @OneToMany(mappedBy = "author")
+
     private List<Comment> comments;
 
-    @OneToMany(mappedBy = "author")
+
     private List<Picture> pictures;
 
 
@@ -36,7 +36,7 @@ public class User extends BaseEntity {
 
 
 
-
+    @Column(nullable = false, unique = true)
     public String getUsername() {
         return username;
     }
@@ -45,6 +45,7 @@ public class User extends BaseEntity {
         this.username = username;
     }
 
+    @Column(nullable = false, unique = true)
     public String getEmail() {
         return email;
     }
@@ -53,6 +54,7 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
+    @Column(nullable = false)
     public String getPassword() {
         return password;
     }
@@ -61,6 +63,7 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
+    @OneToMany(mappedBy = "author")
     public List<Comment> getComments() {
         return comments;
     }
@@ -69,6 +72,7 @@ public class User extends BaseEntity {
         this.comments = comments;
     }
 
+    @OneToMany(mappedBy = "author")
     public List<Picture> getPictures() {
         return pictures;
     }
@@ -77,6 +81,7 @@ public class User extends BaseEntity {
         this.pictures = pictures;
     }
 
+    @OneToMany(mappedBy = "author")
     public List<Route> getRoutes() {
         return routes;
     }

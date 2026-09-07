@@ -1,26 +1,25 @@
 package com.escZ.escZ.Model.Entity;
 
+import com.escZ.escZ.Converter.GradeEnumConverter;
 import com.escZ.escZ.Model.Entity.Enum.GradeEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "grades")
 public class Grade extends BaseEntity{
 
-    private GradeEnum gradeName;
+    private GradeEnum grade;
 
     public Grade() {
     }
 
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = GradeEnumConverter.class)
+    @Column(nullable = false, length = 3)
     public GradeEnum getGrade() {
-        return gradeName;
+        return grade;
     }
 
     public void setGrade(GradeEnum grade) {
-        this.gradeName = grade;
+        this.grade = grade;
     }
 }

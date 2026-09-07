@@ -15,21 +15,15 @@ public class Comment extends BaseEntity{
     public Comment() {
     }
 
-    @Lob
     private String textContent;
-
-    @Column(name = "created", nullable = false)
     private LocalDateTime created;
 
-    @ManyToOne
-    @JoinColumn(name = "route_id")
     private Route route;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
     private User author;
 
 
+    @Lob
     public String getTextContent() {
         return textContent;
     }
@@ -38,6 +32,7 @@ public class Comment extends BaseEntity{
         this.textContent = textContent;
     }
 
+    @Column(name = "created", nullable = false)
     public LocalDateTime getCreated() {
         return created;
     }
@@ -46,6 +41,8 @@ public class Comment extends BaseEntity{
         this.created = created;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "route_id")
     public Route getRoute() {
         return route;
     }
@@ -54,6 +51,8 @@ public class Comment extends BaseEntity{
         this.route = route;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     public User getAuthor() {
         return author;
     }

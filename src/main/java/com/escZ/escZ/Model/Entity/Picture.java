@@ -9,21 +9,16 @@ public class Picture extends BaseEntity{
     public Picture() {
     }
 
-    @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
     private String url;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
     private User author;
 
-    @ManyToOne
-    @JoinColumn(name = "route_id")
     private Route route;
 
 
+    @Column(nullable = false)
     public String getTitle() {
         return title;
     }
@@ -32,6 +27,7 @@ public class Picture extends BaseEntity{
         this.title = title;
     }
 
+    @Column(nullable = false)
     public String getUrl() {
         return url;
     }
@@ -40,6 +36,8 @@ public class Picture extends BaseEntity{
         this.url = url;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     public User getAuthor() {
         return author;
     }
@@ -48,6 +46,8 @@ public class Picture extends BaseEntity{
         this.author = author;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "route_id")
     public Route getRoute() {
         return route;
     }

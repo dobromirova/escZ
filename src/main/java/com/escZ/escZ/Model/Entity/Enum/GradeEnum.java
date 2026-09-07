@@ -1,25 +1,36 @@
 package com.escZ.escZ.Model.Entity.Enum;
 
 public enum GradeEnum {
-    FOA("4a"), FOB("4b"), FOC("4c"),
-    FIA("5a"), FIB("5b"), FIC("5c"),
-    SIA("6a"), SIAP("6a+"),
-    SIB("6b"), SIBP("6b+"),
-    SIC("6c"), SICP("6c+"),
-    SEA("7a"), SEP("7a+"),
-    SEB("7b"), SEBP("7b+"),
-    SEC("7c"), SECP("7c+"),
-    EA("8a"), EAP("8a+"),
-    EB("8b"), EBP("8b+"),
-    EC("8c"), ECP("8c+"),
-    NA("9a"), NAP("9a+"),
-    NB("9b"), NBP("9b+"),
-    NC("9c");
+    FOUR_A("4a"),
+    FOUR_B("4b"),
+    FOUR_C("4c"),
 
-    public final String grade;
+    FIVE_A("5a"),
+    FIVE_B("5b"),
+    FIVE_C("5c"),
 
-    private GradeEnum(String grade) {
-        this.grade = grade;
+    SIX_A("6a"),
+    SIX_AP("6a+"),
+    SIX_B("6b"),
+    SIX_BP("6b+"),
+    SIX_C("6c"),
+    SIX_CP("6c+"),
+
+    SEVEN_A("7a"),
+    SEVEN_AP("7a+"),
+    SEVEN_B("7b"),
+    SEVEN_BP("7b+"),
+    SEVEN_C("7c"),
+    SEVEN_CP("7c+");
+
+    private final String value;
+
+    GradeEnum(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
     }
 
 }

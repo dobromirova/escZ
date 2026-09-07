@@ -8,7 +8,7 @@ public class RouteAddBindingModel {
     private String name;
     private String description;
     private MultipartFile gpxCoordinates;
-    private GradeEnum grade;
+    private GradeEnum gradeType;
 
     public String getName() {
         return name;
@@ -34,11 +34,11 @@ public class RouteAddBindingModel {
         this.gpxCoordinates = gpxCoordinates;
     }
 
-    public GradeEnum getGrade() {
-        return grade;
+    public GradeEnum getGradeType() {
+        return gradeType;
     }
 
-    public void setGrade(GradeEnum grade) {
-        this.grade = grade;
+    public void setGradeType(GradeEnum gradeType) {
+        this.gradeType = gradeType;
     }
 }

@@ -16,30 +16,20 @@ public class Route extends BaseEntity{
     public Route() {
     }
 
-    @Column(nullable = false)
-    @Lob
-    private String gpxCoordinates;
-
-    @Column(nullable = false)
-    private String description;
-
-    @Column(nullable = false, unique = true)
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    private String gpxCoordinates;
+    private String description;
     private User author;
 
-    @OneToMany(mappedBy = "route", fetch = FetchType.LAZY)
     private List<Picture> pictures;
 
-    @OneToMany(mappedBy = "route", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Comment> comments;
 
-    @OneToOne
     private Grade grade;
 
 
+
+    @Lob
     public String getGpxCoordinates() {
         return gpxCoordinates;
     }
@@ -48,6 +38,7 @@ public class Route extends BaseEntity{
         this.gpxCoordinates = gpxCoordinates;
     }
 
+    @Lob
     public String getDescription() {
         return description;
     }
@@ -56,6 +47,7 @@ public class Route extends BaseEntity{
         this.description = description;
     }
 
+    @Column(nullable = false, unique = true)
     public String getName() {
         return name;
     }
@@ -64,6 +56,8 @@ public class Route extends BaseEntity{
         this.name = name;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     public User getAuthor() {
         return author;
     }
@@ -72,6 +66,7 @@ public class Route extends BaseEntity{
         this.author = author;
     }
 
+    @OneToMany(mappedBy = "route", fetch = FetchType.LAZY)
     public List<Picture> getPictures() {
         return pictures;
     }
@@ -80,6 +75,7 @@ public class Route extends BaseEntity{
         this.pictures = pictures;
     }
 
+    @OneToMany(mappedBy = "route", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public List<Comment> getComments() {
         return comments;
     }
@@ -88,6 +84,7 @@ public class Route extends BaseEntity{
         this.comments = comments;
     }
 
+    @OneToOne
     public Grade getGrade() {
         return grade;
     }
