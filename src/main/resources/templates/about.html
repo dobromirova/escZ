@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/commons :: head}"></head>
+
+<body id="page-top">
+
+<header class="masthead" th:replace="~{fragments/commons :: navigation}"></header>
+
+
+
+<section class="about-section text-center" id="about">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-white mb-4">Built with Bootstrap 5</h2>
+                <p class="text-white-50">
+                    EscZ is a website for climbers
+                    <a href="https://startbootstrap.com/theme/grayscale/">the preview page.</a>
+                    The theme is open source, and you can use it for any purpose, personal or commercial.
+                    <br>
+                    <a class="btn btn-primary" href="/users/login">Login</a>
+                    <a class="btn btn-primary" href="/users/register">Register</a>
+                </p>
+            </div>
+        </div>
+        <img class="img-fluid" src="assets/img/ipad.png" alt="..."/>
+    </div>
+</section>
+
+<footer th:replace="~{fragments/commons :: footer}"></footer>
+
+</body>
+</html>

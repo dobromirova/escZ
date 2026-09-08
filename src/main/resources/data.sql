@@ -30,8 +30,8 @@
 --    3, 5);
 
 
-INSERT INTO pictures(title, url, user_id, route_id)
-VALUES('Montesa', 'https://www.valenciaclimb.com/area-montesa-10/', 3, 1);
+--INSERT INTO pictures(title, url, user_id, route_id)
+--VALUES('Montesa', 'https://www.valenciaclimb.com/area-montesa-10/', 3, 1);
 
-INSERT INTO comments(created, text_content, user_id, route_id)
-VALUES('2026-09-07 06:35:50', X'457874726120636F6F6C20726F75746521', 3, 1);
+--INSERT INTO comments(created, text_content, user_id, route_id)
+--VALUES('2026-09-07 06:35:50', X'457874726120636F6F6C20726F75746521', 3, 1);
