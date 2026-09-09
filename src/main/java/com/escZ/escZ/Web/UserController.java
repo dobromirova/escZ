@@ -40,6 +40,8 @@ public class UserController {
         return "login";
     }
 
+
+
     @PostMapping("/register")
     public String doRegister(@Valid UserRegisterBindingModel userRegisterBindingModel,
                              BindingResult bindingResult, RedirectAttributes redirectAttributes) {
@@ -67,7 +69,7 @@ public class UserController {
         model.addAttribute("user",
                 modelMapper.map(userService.findById(id), UserViewModel.class));
 
-        return "profile";
+        return "view-profile";
     }
 
 

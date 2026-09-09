@@ -41,6 +41,8 @@ public class AppSecurityConfiguration{
                                 "/users/login",
                                 "/users/register")
                         .permitAll()
+
+
                         .requestMatchers(
                                 "/routes/**",
                                 "/view-profile").authenticated()
@@ -50,14 +52,15 @@ public class AppSecurityConfiguration{
                 .formLogin(form -> form
                         .loginPage("/users/login")
                         .usernameParameter("email")
-                        .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
-                        .defaultSuccessUrl("/")
-                        .failureForwardUrl("/users/login-error")
-                        .permitAll())
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/", true)
+                        .failureUrl("/users/login?error=true")
+                        .permitAll()
+                )
 
                 .logout(logout -> logout
                         .logoutUrl("/users/logout")
-                        .logoutSuccessUrl("/")
+                        .logoutSuccessUrl("/") // TODO: FIX LOGOUT
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID"));
 
