@@ -4,3 +4,4 @@
 Built with Spring Boot, it has an MVC structure. It contains controllers, entities, services, views, repositories and validations.
 Implemented bootstrap page with Thymeleaf.
 Spring Security and i18n for English and Spanish.
+MySQL database and custom queries.
