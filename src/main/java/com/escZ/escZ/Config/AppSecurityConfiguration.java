@@ -30,7 +30,7 @@ public class AppSecurityConfiguration{
                         .requestMatchers(
                                 "/css/**",
                                 "/js/**",
-                                "/images/**",
+                                "/assets/img/**",
                                 "/webjars/**",
                                 "/favicon.ico")
                         .permitAll()
