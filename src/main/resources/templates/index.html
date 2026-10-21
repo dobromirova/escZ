@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:replace="~{fragments/commons :: head}"></head>
 
@@ -13,25 +13,51 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8">
                 <h2 class="text-white mb-4">Built with Bootstrap 5</h2>
-                <p class="text-white-50">
-                    <a class="btn btn-primary" href="/users/login">Login</a>
-                    <a class="btn btn-primary" href="/users/register">Register</a>
-                </p>
+
+                <div sec:authorize="isAnonymous()">
+                    <p class="text-white-50">
+                        <a class="btn btn-primary" href="/users/login">Login</a>
+                        <a class="btn btn-primary" href="/users/register">Register</a>
+                    </p>
+                </div>
             </div>
         </div>
-        <img class="img-fluid" src="assets/img/ipad.png" alt="..."/>
+        <img class="img-fluid" src="/assets/img/ipad.png" alt="..."/>
     </div>
 </section>
 
 
-<!-- TODO: DISPLAY PICTURES HERE -->
+<!-- TODO: DISPLAY PICTURES HERE-->
+
+<section class="gallery">
+    <img
+            th:each="r : ${routes}"
+            th:src="@{${r}}"
+            width="400px"
+            height="400px" alt="">
+</section>
+
+<!--
+<section class="gallery">
+    <img th:each="p : ${pictures}"
+         th:src="@{${p}}"
+         width="200"
+         height="200"
+         alt="">
+</section> -->
+
+
 <!-- Projects-->
-<section class="projects-section bg-light" id="projects">
+<section class="gallery" id="gallery">
     <div class="container px-4 px-lg-5">
         <!-- Featured Project Row-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg"
-                                                alt="..."/></div>
+            <div class="col-xl-8 col-lg-7">
+
+                <img class="img-fluid mb-3 mb-lg-0" src="/assets/img/bg-masthead.jpg"
+                                                alt="..."/>
+
+            </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="featured-text text-center text-lg-left">
                     <h4>Shoreline</h4>
@@ -43,7 +69,7 @@
         </div>
         <!-- Project One Row-->
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-            <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="..."/></div>
+            <div class="col-lg-6"><img class="img-fluid" src="/assets/img/demo-image-01.jpg" alt="..."/></div>
             <div class="col-lg-6">
                 <div class="bg-black text-center h-100 project">
                     <div class="d-flex h-100">
@@ -58,7 +84,7 @@
         </div>
         <!-- Project Two Row-->
         <div class="row gx-0 justify-content-center">
-            <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="..."/></div>
+            <div class="col-lg-6"><img class="img-fluid" src="/assets/img/demo-image-02.jpg" alt="..."/></div>
             <div class="col-lg-6 order-lg-first">
                 <div class="bg-black text-center h-100 project">
                     <div class="d-flex h-100">
@@ -77,13 +103,6 @@
 
 
 
-<section class="gallery">
-    <img th:each="p : ${pictures}"
-         th:src="@{${p}}"
-         width="200"
-         height="200"
-         alt="">
-</section>
 
 <footer th:replace="~{fragments/commons :: footer}"></footer>
 
