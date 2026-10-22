@@ -43,23 +43,47 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public String doRegister(@Valid UserRegisterBindingModel userRegisterBindingModel,
-                             BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String doRegister(@Valid @ModelAttribute ("userRegisterBindingModel")
+                                 UserRegisterBindingModel userRegisterBindingModel,
+                                BindingResult bindingResult,
+                                Model model) {
 
 
-        if (bindingResult.hasErrors() || !userRegisterBindingModel
-                .getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
-            redirectAttributes
-                    .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
-                    .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel",
-                            bindingResult);
-
-            return "redirect:register";
+        // Check whether the username is already taken
+        if (userService.usernameExists(userRegisterBindingModel.getUsername())) {
+            bindingResult.rejectValue(
+                    "username",
+                    "username.duplicate",
+                    "Username is already occupied"
+            );
         }
 
-        userService.registerUser(modelMapper.map(userRegisterBindingModel, UserServiceModel.class));
+        // Check whether the email is already registered
+        if (userService.emailExists(userRegisterBindingModel.getEmail())) {
+            bindingResult.rejectValue(
+                    "email",
+                    "email.duplicate",
+                    "Email is already registered"
+            );
+        }
 
-        return "redirect:login";
+        // Check whether the passwords match
+        if (!userRegisterBindingModel.getPassword()
+                .equals(userRegisterBindingModel.getConfirmPassword())) {
+            model.addAttribute("passwordMismatch", true);
+        }
+
+        if (bindingResult.hasErrors()
+                || !userRegisterBindingModel.getPassword()
+                .equals(userRegisterBindingModel.getConfirmPassword())) {
+            return "register";
+        }
+
+        userService.registerUser(
+                modelMapper.map(userRegisterBindingModel, UserServiceModel.class)
+        );
+
+        return "redirect:/users/login";
     }
 
 
