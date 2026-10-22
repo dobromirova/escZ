@@ -7,5 +7,6 @@ import org.springframework.stereotype.Service;
 public interface UserService {
     void registerUser(UserServiceModel userServiceModel);
     UserServiceModel findById(Long id);
-
+    boolean usernameExists(String username);
+    boolean emailExists(String email);
 }
