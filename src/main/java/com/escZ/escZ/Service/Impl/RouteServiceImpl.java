@@ -1,10 +1,12 @@
 package com.escZ.escZ.Service.Impl;
 
 import com.escZ.escZ.Model.Entity.Enum.GradeEnum;
+import com.escZ.escZ.Model.Entity.Grade;
 import com.escZ.escZ.Model.Entity.Route;
 import com.escZ.escZ.Model.Service.RouteServiceModel;
 import com.escZ.escZ.Model.View.RouteDetailsViewModel;
 import com.escZ.escZ.Model.View.RouteViewModel;
+import com.escZ.escZ.Repository.GradeRepository;
 import com.escZ.escZ.Repository.RouteRepository;
 import com.escZ.escZ.Service.GradeService;
 import com.escZ.escZ.Service.RouteService;
@@ -23,13 +25,16 @@ public class RouteServiceImpl implements RouteService {
     private UserService userService;
     private final GradeService gradeService;
     private final ModelMapper modelMapper;
+    private final GradeRepository gradeRepository;
 
 
-    public RouteServiceImpl(RouteRepository routeRepository, UserService userService, GradeService gradeService, ModelMapper modelMapper) {
+
+    public RouteServiceImpl(RouteRepository routeRepository, UserService userService, GradeService gradeService, ModelMapper modelMapper, GradeRepository gradeRepository) {
         this.routeRepository = routeRepository;
         this.userService = userService;
         this.gradeService = gradeService;
         this.modelMapper = modelMapper;
+        this.gradeRepository = gradeRepository;
     }
 
     @Transactional
@@ -56,6 +61,13 @@ public class RouteServiceImpl implements RouteService {
         route.setGrade(gradeService
                 .findGradeByName(routeServiceModel.getGrade()));
 
+        Grade grade = gradeRepository.findByGrade(
+                routeServiceModel.getGrade()
+        ).orElseThrow(() ->
+                new IllegalArgumentException("Grade not found"));
+
+
+        route.setGrade(grade);
         routeRepository.save(route);
     }
 

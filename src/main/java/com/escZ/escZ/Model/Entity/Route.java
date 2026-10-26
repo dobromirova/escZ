@@ -25,6 +25,7 @@ public class Route extends BaseEntity{
 
     private List<Comment> comments;
 
+
     private Grade grade;
 
 
