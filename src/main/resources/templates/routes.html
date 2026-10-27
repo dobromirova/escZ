@@ -1,27 +1,64 @@
+
 <!-- WILL DISPLAY ROUTES UPLOADED BY OTHER USERS AND COMMENTS
- <a href="/routes/all" class="btn">To routes</a> -->
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+<a href="/routes/all" class="btn">To routes</a> -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="fragments/commons::head"></head>
+
 <body>
 <div class="wrapper">
 
     <header th:replace="fragments/commons::nav"></header>
 
-    <section th:each="r : ${routes}" th:object="${r}" class="road">
-        <img th:src="*{pictureUrl}" alt="Title image">
-        <div>
-            <h2 th:text="*{name}">Your Route</h2>
-            <p th:text="*{description}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis
-                deleniti possimus nemo
-                non repellendus?
-                Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi.</p>
-            <a th:href="@{/routes/details/{id}(id = *{id})}" class="btn">Learn More</a>
-        </div>
+
+
+    <section th:each="r, iter : ${routes}"
+             th:object="${r}"
+             class="route-container">
+
+        <section class="road">
+
+            <!-- Route name above the picture -->
+            <div class="route-left">
+                <h2 th:text="*{name}">Your Route</h2>
+
+                <img th:src="*{pictureUrl}"
+                     th:alt="*{name}"
+                     class="route-image">
+
+                <a th:href="@{/routes/details/{id}(id=*{id})}"
+                   class="btn">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Description on the right -->
+            <div class="route-right">
+                <p th:text="*{description}">
+                    Route description goes here.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Separator between routes, except after the last -->
+        <hr class="route-separator" th:if="${not iter.last}">
+
     </section>
+
+
+
+    <!-- Separator between routes -->
+    <hr class="route-separator"
+        th:each="r, iter : ${routes}"
+        th:if="${not iter.last}">
+
 </div>
 
 </body>
+
 <footer th:replace="fragments/commons::footer"></footer>
+
 </html>
