@@ -25,6 +25,7 @@ public class Route extends BaseEntity{
 
     private List<Comment> comments;
 
+
     private Grade grade;
 
 
@@ -84,7 +85,8 @@ public class Route extends BaseEntity{
         this.comments = comments;
     }
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "route_id")
     public Grade getGrade() {
         return grade;
     }
