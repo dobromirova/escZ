@@ -18,12 +18,12 @@ Community Interaction: Users can interact through a comment system.
 The application follows the Model-View-Controller (MVC) architecture and is built with Spring Boot.
 
 Key components include:
-Controllers, services, repositories, and entity models.
-MySQL database integration with custom queries.
-Data validation.
-Spring Security for authentication and access management.
-Thymeleaf for server-side rendering.
-Bootstrap for frontend styling.
+Controllers, services, repositories, and entity models;
+MySQL database integration with custom queries;
+Data validation;
+Spring Security for authentication and access management;
+Thymeleaf for server-side rendering;
+Bootstrap for frontend styling;
 Internationalization (i18n) supporting English and Spanish.
 
 # Technologies Used
