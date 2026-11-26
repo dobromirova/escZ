@@ -4,11 +4,12 @@ EscZ is a social platform for mountain and climbing enthusiasts, where users can
 Users can browse routes shared by the community and find new climbing spots based on their preferred skill level, with filtering options to help them discover suitable destinations.
 
 # Features
-Route Sharing: Users can publish mountain routes along with their locations and photographs.
-Route Discovery: Explore routes and climbing spots shared by other members.
-Skill-Level Filtering: Filter routes according to difficulty level.
-User Management: User registration, authentication, and profile management.
-Community Interaction: Users can interact through a comment system.
+  Route Sharing: Users can publish mountain routes along with their locations and photographs.
+  Route Discovery: Explore routes and climbing spots shared by other members.
+  Skill-Level Filtering: Filter routes according to difficulty level.
+  User Management: User registration, authentication, and profile management.
+  
+  Community Interaction: Users can interact through a comment system.
 
 # Technical Implementation
 The application follows the Model-View-Controller (MVC) architecture and is built with Spring Boot.
