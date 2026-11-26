@@ -5,13 +5,9 @@ Users can browse routes shared by the community and find new climbing spots base
 
 # Features
 Route Sharing: Users can publish mountain routes along with their locations and photographs.
-
 Route Discovery: Explore routes and climbing spots shared by other members.
-
 Skill-Level Filtering: Filter routes according to difficulty level.
-
 User Management: User registration, authentication, and profile management.
-
 Community Interaction: Users can interact through a comment system.
 
 # Technical Implementation
