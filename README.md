@@ -27,14 +27,14 @@ Components:
 - Internationalization (i18n) supporting English and Spanish.
 
 # Technologies Used
-Java
-Spring Boot
-Spring Security
-Spring Data
-Thymeleaf
-MySQL
-Bootstrap
-HTML / CSS
+- Java
+- Spring Boot
+- Spring Security
+- Spring Data
+- Thymeleaf
+- MySQL
+- Bootstrap
+- HTML / CSS
 
 # Project Structure
 Follows a layered architecture, separating business logic, data access, request handling, and presentation into dedicated components.
